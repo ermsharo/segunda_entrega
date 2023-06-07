@@ -172,18 +172,30 @@ recordNode* getData(char *filepath, int len) {
     return recordArr;
 }
 
+/* 
+    Recebe um ponteiro para arvore, um nó pai x que esta cheio 
+    um marcador i de posição bem como um nó y filho.
+    Leva a chave do meio do nó y para o nó pai x, e copia metade
+    do conteudo e filhos do nó filho y para um novo no x caso não seja 
+    um nó folha
+*/
 void splitChild(bTree* tree, bTreeNode* x, int i, bTreeNode* y)
 {
+    // Aloca memoria vem como inicializa o novo nó irmão Z
 	bTreeNode* z = malloc(sizeof(bTreeNode));
 	nodeInit(z,y->isLeaf,tree);
 	z->noOfRecs = t-1;
 
+    // Copia metade das chaves do nó y para o nó z
 	int j;
 	for(j=0;j<t-1;j++)
 	{
 		z->recordArr[j] = y->recordArr[j+t];
 	}
 
+    // Caso não seja uma folha copia metade dos filhos 
+    // do nó y para o nó z, além de esvaziar os ponteiros
+    // nó y setando os filhos para -1
 	if(!y->isLeaf)
 	{
 		for(j=0;j<t;j++)
@@ -192,30 +204,46 @@ void splitChild(bTree* tree, bTreeNode* x, int i, bTreeNode* y)
             y->children[j+t] = -1; 
 		}
 	}
+    // Seta numero de chaves para a metade
 	y->noOfRecs = t-1;
-
+    
+    // Move todos filhos uma posição para frente 
 	for(j=(x->noOfRecs); j >= i+1;j--)
 	{
 		x->children[j+1] = x->children[j];
 	}
 	
+    // Seta o uma referencia que liga o 
+    // novo nó x que foi criado para o nó x
 	x->children[i+1] = z->pos;
 
+    // Move todas chaves uma posição para frente 
 	for(j=(x->noOfRecs) - 1; j >= i;j--)
 	{
 		x->recordArr[j+1] = x->recordArr[j];
 	}
+    // Seta a chave do meio do nó filho y para o pai x
 	x->recordArr[i] = y->recordArr[t-1];
 	x->noOfRecs++;
 
+    // Salva as as alterações feitas em x, y e z
     writeFile(tree, x, x->pos);
     writeFile(tree, y, y->pos);
     writeFile(tree, z, z->pos);
 	free(z);
 }
 
+/*
+    Insere uma nova chave em um nó folha que não está cheio ainda
+    e caso haja necessidade faz os splitChild em nós internos ele
+    faz enquanto desce recursivamente.
+*/
 void insertNonFull(bTree* tree,bTreeNode* x,recordNode* record)
 {	
+    // Apos setar o contardor i para a ultima posição do nó x
+    // caso o nó x for uma folha simplesmente vai deslocando 
+    // todas as chaves deste nó x para que possa abrir expaço 
+    // para a chave que vem da variavel record
 	int i = (x->noOfRecs)-1;
 	if(x->isLeaf == true)
 	{
@@ -226,18 +254,28 @@ void insertNonFull(bTree* tree,bTreeNode* x,recordNode* record)
 		}
 		x->recordArr[i+1] = record;
 		(x->noOfRecs)++;
-
+        // Por fim salva as alterações feitas
         writeFile(tree, x, x->pos);
 	}
+    // Caso seja um nó interno, da mesma forma posiciona o 
+    // ponteiro para a posição adequada da chave e faz split 
+    // se se necessario, e continua com a chamada recursiva
 	else
-	{
+	{   
+        // Posicionamento da chave no local certo 
 		while((i>=0) && (record->key < x->recordArr[i]->key))
 		{
 			i=i-1;
 		}
+
+        // Faz um seek para trazer o no que devera ser feita a
+        // chamada recursiva 
 		bTreeNode* childAtPosi = malloc(sizeof(bTreeNode));
         readFile(tree, childAtPosi, x->children[i+1]);
         
+        // Performa um split caso nó esteja cheio 
+        // e verifica se a chave inserida é maior que a ultima do 
+        // nó para que possa ser inserida 
 		if(childAtPosi->noOfRecs == (2*t-1))
 		{
 			splitChild(tree,x,i+1,childAtPosi);
@@ -246,6 +284,8 @@ void insertNonFull(bTree* tree,bTreeNode* x,recordNode* record)
 			}
 		}
 
+        // Le novamente e faz chamada recursiva para continar 
+        // buscando onde inserir a chave
         readFile(tree, childAtPosi, x->children[i+1]);
 		insertNonFull(tree,childAtPosi,record);
 
@@ -253,12 +293,16 @@ void insertNonFull(bTree* tree,bTreeNode* x,recordNode* record)
 	}
 }
 
+/*
+    Principal metodo a ser chamado quando uma inserção deve ser feita
+*/
 void insert(bTree* tree,recordNode* record)
 {
+    // Caso a arvore esteja sem nenhum registro 
 	if(tree->nextPos == 0) 
 	{
 		tree->root = tree->nextPos;
-
+        // Aloca memoria e cria um novo nó onde seta a chave a ser inserida
 		bTreeNode* firstNode = malloc(sizeof(bTreeNode));
 		nodeInit(firstNode,true,tree);
 		firstNode->recordArr[0] = record;
@@ -269,35 +313,46 @@ void insert(bTree* tree,recordNode* record)
 		free(firstNode);
 		return;
 	}
+    // Caso a raiz já tenha sido criada 
 	else
 	{
+        // Le o a arvore que com base no ponteiro passado 
 		bTreeNode* rootCopy = malloc(sizeof(bTreeNode));
         readFile(tree, rootCopy, tree->root);
-
+        
+        // Se a raiz está cheia ou seja 2*t-1 que é a regra da arvore b
 		if(rootCopy->noOfRecs == (2*t-1))
 		{
+            // Criamos uma nova raiz e a altura da arvore crece em +1 de profundidade
 			bTreeNode* newRoot = malloc(sizeof(bTreeNode));
 			nodeInit(newRoot,false,tree);
 			newRoot->children[0] = tree->root;
 
+            // Metodo split child criado passando a raiz antiga e a nova
+            // dessa forma dividindo os conteudos para considerando a raiz antiga
+            // e a nova raiz como sendo o nó pai
 			splitChild(tree,newRoot,0,rootCopy);
 
+
+            // Contador vai até a posição que a chave a ser inserida deve ficar
 			int i=0;
 			if(newRoot->recordArr[0]->key < record->key){
 				i++;
 			}
-			
+
+            // E feito um seek para que um novo nó seja chamado para memoria 
+            // principal e seja inserido a chave atravez de uma chamada recursiva
 			bTreeNode* childAtPosi = malloc(sizeof(bTreeNode));
             readFile(tree, childAtPosi, newRoot->children[i]);
 			insertNonFull(tree,childAtPosi,record);
 
+            // Nova raiz é setada na arvore
 			tree->root = newRoot->pos;
-            
-            
 
 			free(newRoot);
             free(childAtPosi);
 		}
+        // Caso nó não esteje cheio uma chamada para a função insert not full e feita
 		else
 		{
 			insertNonFull(tree,rootCopy,record);
@@ -305,7 +360,10 @@ void insert(bTree* tree,recordNode* record)
 		free(rootCopy);
 	}
 }
-
+/*
+    Percorre toda a arvore de forma como se fosse uma 
+    pre order traversal 
+*/
 void traverse(bTree* tree, int root) {
     
     if(-1 == root) {    
@@ -322,7 +380,9 @@ void traverse(bTree* tree, int root) {
 
     free(toPrint);
 }
-
+/*
+    Mostra conteudo de um nó, entre suas chaves e filhos
+*/
 void dispNode(bTreeNode* node)
 {
 	printf("Position in node:%d\n",node->pos );
