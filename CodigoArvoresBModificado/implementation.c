@@ -403,20 +403,33 @@ void dispNode(bTreeNode* node)
     printf("\n");
 }
 
+/*
+    Ideia Geral é a partir de da posição em um nó ir 
+    ou posicionando ele até a posição correta ou 
+    busca recursivamente em um nivel abaixo 
+    e retorna o nó que esta sendo buscado 
+*/
 recordNode* searchRecursive(bTree* tree, int key, bTreeNode* root) {
     int i = 0;
     
+    // Incrementa contador até a posição correnta que a chave 
+    // possivelmente pode estar
     while(i < root->noOfRecs && key > root->recordArr[i]->key)
         i++;
     
-    
+    // Se o contador menor que o tamanho do nó e se a chave em
+    // questão que o ponteiro parou é a chave buscada retorna ela 
     if(i < root->noOfRecs && key == root->recordArr[i]->key)
         return root->recordArr[i];
     
-    
+    // Retorna nulo caso esteja na raiz pois não há mais possibilidade
+    // de o nó buscado estar em um nivel abaixo na arvore 
     else if(root->isLeaf) {
         return NULL;
     }
+    // Caso contrario continuo buscando no nó filho respectivo ao 
+    // contador atual de forma recursiva. Para isso ele chama o metodo
+    // para que o proximo nó seja trazido para a memória principal
     else {
         bTreeNode* childAtPosi = malloc(sizeof(bTreeNode));
         readFile(tree, childAtPosi, root->children[i]);
@@ -427,17 +440,27 @@ recordNode* searchRecursive(bTree* tree, int key, bTreeNode* root) {
     }
 }
 
+/* 
+    Função inicial que chama a função recursiva de busca
+    e retorna um resultado 
+*/
 recordNode* search(bTree* tree, int key) {
-    
+    // Aloca nó raiz para inicialização da busca e
+    // lê o arquivo de armazenamento de registros 
     bTreeNode* root = malloc(sizeof(bTreeNode));
     readFile(tree, root, tree->root);
 
+    // Inicia a busca de maneira recursiva passando a raiz 
+    // como inicio
     recordNode* result = searchRecursive(tree, key, root);
     free(root);
     return result;
      
 }
 
+/*
+    Move o contador idx ate a posicão mais conveniente para achar a chave k
+*/
 int findKey(bTreeNode* node, int k) {
     int idx=0;
     while (idx < node->noOfRecs && node->recordArr[idx]->key < k)
@@ -445,45 +468,73 @@ int findKey(bTreeNode* node, int k) {
     return idx;
 }
 
+/*
+    Remove a chave e decrementa pelo processo 
+    de mover todos as chaves a frente uma posição 
+    para traz e decrementa o numero de nós.
+*/
 void removeFromLeaf (bTree* tree, bTreeNode *node, int idx) {
     for (int i=idx+1; i<node->noOfRecs; ++i){
 	    node->recordArr[i-1] = node->recordArr[i];
     }
     node->noOfRecs--;
 }
- 
+
+/*
+    Método que trata dos corner cases do caso de ter que deletar um
+    nó interno, estes corner cases são os seguintes 
+        -> 2.a Se o filho y que precede k do nó x tem pelo menos t chaves
+        -> 2.b Simetricamente, se o filho z que segue k do nó x tem pelo menos t chaves
+        -> 2.c Caso contrário, se ambos y e z possuem apenas t-1 chaves
+*/
 void removeFromNonLeaf(bTree* tree, bTreeNode *node, int idx) {
- 
+    
+    // Seta a chave atual com base no indice passado 
     int k = node->recordArr[idx]->key;
     
+    // Aloca nós para o filho do node no parametro e 
+    // para seu irmão 
     bTreeNode *child = malloc(sizeof(bTreeNode));
     bTreeNode *sibling = malloc(sizeof(bTreeNode));
     
+    // Por meio de uma leitura seta o nó filho de nó passado no parametro 
+    // e o nó irmão do filho respectivo 
     readFile(tree, child, node->children[idx]);
     readFile(tree, sibling, node->children[idx+1]); 
  
-    
-    
+    // caso 2.a : nó interno, filho esquerdo (child) tenha t chaves
+    //   primeiro a chave predecessora (pred) a com base no index do filho esquerdo(idx)    
+    //   substitui a ultima chave do nó pai(child) pela chave predecessora no filho 
+    //   por fim deletamos a chave predecessora do nó filho 
     if (child->noOfRecs >= t) {
         recordNode* pred = getPred(tree, node, idx);
         node->recordArr[idx] = pred;
         removeNode(tree, child, pred->key); 
     }
- 
-    
+    // Caso 2.b : nó interno, filho direito (sibling) tem t chaves
+    //   primeiro pega a chave sucessora ao index (idx) por meio do getSucc
+    //   na sequencia substitui no nó pai (node) a chave sucessora
+    //   por fim deleta a chave sucessroa do nó irmao direito(sibbling)
     else if  (sibling->noOfRecs >= t)
     {
         recordNode* succ = getSucc(tree, node, idx);
         node->recordArr[idx] = succ;
         removeNode(tree, sibling, succ->key); 
     }
- 
-        else {
+    // Caso 2.c : nó interno, ambos filhos tem t-2 chaves 
+    //   Chama o merge para copiar todo conteudo do nó a direita (child) da chave
+    //   a ser deletada para a o nó a esquerda que sera obtido a partir de idx.
+    //   Também este mesmo metodo merge trasfere a chave a ser deletada para o nó de baixo.
+    //   Recursivamente chama o metodo removeNode que 
+    //   simplesmente deleta o nó em questão da caso esteja na folha
+    //   ou em recursão continua fazendo os merges ou outras operações necessarias    
+    else {
         child = merge(tree, node, idx); 
         removeNode(tree, child, k);
 	    return; 
     }
     
+    // Alterações são escritas nos nós que tiveram operações realizadas 
     writeFile(tree, child, child->pos);
     writeFile(tree, sibling, sibling->pos);
 
@@ -491,17 +542,27 @@ void removeFromNonLeaf(bTree* tree, bTreeNode *node, int idx) {
     free(sibling);
 }
 
-
+/*
+    Trata de todos os corner cases da remoção 
+    engloba os casos 1, 2 e 3
+*/
 void removeNode(bTree* tree, bTreeNode* node, int k) {
 
+    // Chama o metodo findKey que posiciona o contador k onde
+    // a chave precisa ser eliminada
     int idx = findKey(node, k);
+
+    
     if (idx < node->noOfRecs && node->recordArr[idx]->key == k) {
+        // Caso 1: Se a chave k está no nó x e x é uma folha, 
+        // exclua a chave k de x.
         if (node->isLeaf){
 	        removeFromLeaf(tree, node, idx);
+        // Caso 2: Se a chave k está no nó x e x é um nó interno:
         } else {
             removeFromNonLeaf(tree, node, idx);
         }
-        
+        // Escreve arquivo para que as alterações sejam salvas
 	    writeFile(tree, node, node->pos);
     }
     else {
@@ -510,9 +571,8 @@ void removeNode(bTree* tree, bTreeNode* node, int k) {
 		    return false;
        	}
  
-        bool flag = idx==node->noOfRecs;
+        bool flag = idx == node->noOfRecs;
  
-
         bTreeNode *childAtPosi = malloc(sizeof(bTreeNode));
         readFile(tree, childAtPosi, node->children[idx]);
 
@@ -538,29 +598,41 @@ void removeNode(bTree* tree, bTreeNode* node, int k) {
     }
 }
 
-
+/*
+    Obtem uma chave predecessora a uma chave em idx
+*/
 recordNode* getPred(bTree* tree, bTreeNode *node, int idx) {
+
+    // Aloca e lê o que sera o registro do nó filho onde esta a chave predecessora
     bTreeNode *curr = malloc(sizeof(bTreeNode));
     readFile(tree, curr, node->children[idx]);
 
+    // Enquanto current não é folha lê chama o filho para memoria
     while (!curr->isLeaf){
         readFile(tree, curr, curr->children[curr->noOfRecs]);
     }
-        
+
+    // Salva posição mais a direita do nó curr que é o predecessor
     recordNode* result = curr->recordArr[curr->noOfRecs-1];
     free(curr);
     return result;
 }
- 
+
+/*
+    Obtem uma chave Sucessora a uma chave em idx
+*/
 recordNode* getSucc(bTree* tree, bTreeNode *node, int idx) {
- 
+    
+    // Aloca e lê o que sera o registro do nó filho onde esta a chave predecessora
     bTreeNode *curr = malloc(sizeof(bTreeNode));
     readFile(tree, curr, node->children[idx+1]); 
+
+    // Enquanto current não é folha lê chama o filho para memoria
     while (!curr->isLeaf){
         readFile(tree, curr, curr->children[0]);
     }
  
-    
+     // Salva posição mais a esquerda do nó curr que é a chave sucessora 
     recordNode* result = curr->recordArr[0];
     free(curr);
     return result;
@@ -672,37 +744,59 @@ void borrowFromNext(bTree* tree, bTreeNode *node, int idx) {
     return;
 }
  
+/*
+    Operação utilizada quando temos que deletar uma chave que 
+    serve de raiz para dois nós e estes nós podem ser mesclados 
+*/ 
 bTreeNode* merge(bTree* tree, bTreeNode *node, int idx) {
 
+    // Aloca memoria para o filho esquerdo e o irmão direito deste filho 
     bTreeNode *child = malloc(sizeof(bTreeNode));
     bTreeNode *sibling = malloc(sizeof(bTreeNode));
     
+    // Seta os conteudos com base em 2 SEEKs para o filho e o irmao deste
     readFile(tree, child, node->children[idx]);
     readFile(tree, sibling, node->children[idx+1]);
     
+    // coloca a chave pai que sera deletada
+    // no filho esquerdo
     child->recordArr[t-1] = node->recordArr[idx];
- 
+    
+    // Percorre todo o irmão direito copiando o conteudo 
+    // das chaves para o filho esquerdo 
     for (int i=0; i<sibling->noOfRecs; ++i)
         child->recordArr[i+t] = sibling->recordArr[i];
- 
+    
+    // Caso não seja folha copia também todos os ponteiros para 
+    // os filhos do irmão a direita
     if (!child->isLeaf) {
         for(int i=0; i<=sibling->noOfRecs; ++i)
             child->children[i+t] = sibling->children[i];
     }
 
-    for (int i=idx+1; i<node->noOfRecs; ++i)
+    // Exclusão no chave desejada no nó pai 
+    // Desloca todas chaves do nó pai (node) uma posicão 
+    // para esquerda, pois a chave de cima mudou de lugar 
+    // e foi para o filho.
+    for (int i=idx+1; i<node->noOfRecs; ++i) 
         node->recordArr[i-1] = node->recordArr[i];
- 
+    
+    // Exclusão da chave desejada do nó filho. Faz o mesmo 
+    // processo do for de cima
     for (int i=idx+2; i<=node->noOfRecs; ++i) 
         node->children[i-1] = node->children[i];
+
+    // Atualiza calores de controle 
     node->children[node->noOfRecs] = -1; 
     child->noOfRecs += sibling->noOfRecs+1;
     node->noOfRecs--;
- 
+    
+    // Caso seja o nó pai fique vazio, seta a raiz para ser ele
     if(node->noOfRecs == 0) {
         tree->root = node->children[0];
     }
 
+    // Escreve todas modificações feitas
     writeFile(tree, node, node->pos);
     writeFile(tree, child, child->pos);
     writeFile(tree, sibling, sibling->pos);
@@ -712,12 +806,21 @@ bTreeNode* merge(bTree* tree, bTreeNode *node, int idx) {
     return child;
 }
 
+/*
+    Metodo inicial para exclusão de nó de uma arvore 
+*/
 bool removeFromTree(bTree* tree, int key) {
+
+    // Aloca nó raiz e seta infomações de acordo com o arquivo que é lido
     bTreeNode *root = malloc(sizeof(bTreeNode));
     readFile(tree, root, tree->root);
 
+    // primeiramente verifica se a chave a ser excluido existe na arvore
+    // por meio de uma busca
     bool found = search(tree, key);
     if(found);
+        // se a chave existe na arvore esta pode ser excluida por meio 
+        // de um metodo auxiliar para tratar de todos os corner cases
         removeNode(tree, root, key); 
 
     free(root);
