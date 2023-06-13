@@ -565,17 +565,22 @@ void removeNode(bTree* tree, bTreeNode* node, int k) {
         // Escreve arquivo para que as alterações sejam salvas
 	    writeFile(tree, node, node->pos);
     }
+    // Lida como os subcasos 3 : pois a chave k não esta em um nó interno 
     else {
        
+        // Caso para validação se já estamos na folha e ainda
+        // não encontramos o que precisamos 
         if (node->isLeaf) {
 		    return false;
        	}
  
         bool flag = idx == node->noOfRecs;
- 
+
+        // Determinando a raiz da subarvore adequada
         bTreeNode *childAtPosi = malloc(sizeof(bTreeNode));
         readFile(tree, childAtPosi, node->children[idx]);
 
+        // Caso 3.a : Se raiz da subarvore não tem t-1 chaves 
         if (childAtPosi->noOfRecs < t) {
             fill(tree, node, idx);
             readFile(tree, childAtPosi, node->children[idx]);
@@ -638,23 +643,30 @@ recordNode* getSucc(bTree* tree, bTreeNode *node, int idx) {
     return result;
 }
  
-
+// Cuida do subcasos de 3
 void fill(bTree* tree, bTreeNode *node, int idx) {
+
+    // Alocação e seta os irmão sucessores e predecessores
     bTreeNode *cPrev = malloc(sizeof(bTreeNode));
     bTreeNode *cSucc = malloc(sizeof(bTreeNode));
-
     readFile(tree, cPrev, node->children[idx-1]);
     readFile(tree, cSucc, node->children[idx+1]);
     
+    // Caso 3.a : nó somente tem t-1 chaves mas irmão tem t 
+    // (Irmão a esquerda da chave tem t chaves)
+    // então pega emprestado as chaves do irmão a esquerda
     if (idx!=0 && cPrev->noOfRecs>=t) {
         borrowFromPrev(tree, node, idx);
     }
  
-
+    // Caso 3.a : nó somente tem t-1 chaves mas irmão tem t 
+    // (Irmão a direita da chave tem t chaves)
+    // então pega emprestado as chaves do irmão a direita
     else if (idx!=node->noOfRecs && cSucc->noOfRecs>=t) {
         borrowFromNext(tree, node, idx);
     }
- 
+    // Caso 3.c : os irmão imediatos tem t-1 chaves 
+    // escolha um irmão e junte(merge) com ele 
     else {
         if (idx != node->noOfRecs)
             merge(tree, node, idx);
@@ -667,32 +679,45 @@ void fill(bTree* tree, bTreeNode *node, int idx) {
 
     return;
 }
- 
+/*
+   Desloca todos os as chaves e registro de filhos 
+   um para a esquerda e pega uma chave emprestada 
+   do nó predecessor. e faz todas substituições necessarias
+*/
 void borrowFromPrev(bTree* tree, bTreeNode *node, int idx) {
+    
+    // Alocações de memoria e definições de nós
     bTreeNode *child = malloc(sizeof(bTreeNode));
     bTreeNode *sibling = malloc(sizeof(bTreeNode));
-    
     readFile(tree, child, node->children[idx]);
     readFile(tree, sibling, node->children[idx-1]);
     
-
+    // Percorre por todos as chaves do nó atual trazendo 
+    // eles uma posição para a direita
     for (int i=child->noOfRecs-1; i>=0; --i)
         child->recordArr[i+1] = child->recordArr[i];
- 
+    
+    // Percorre por todos os filhos do nó atual trazendo 
+    // eles uma posição para a direita
     if (!child->isLeaf) {
         for(int i=child->noOfRecs; i>=0; --i)
             child->children[i+1] = child->children[i];
     }
- 
+    
+    // Seta a chave na raiz imediata que foi emprestada
     child->recordArr[0] = node->recordArr[idx-1];
- 
+    
+    // Substitui o a referencia do filho e decrementa um no irmão
     if (!node->isLeaf) {
         child->children[0] = sibling->children[sibling->noOfRecs];
         sibling->children[sibling->noOfRecs] = -1; 
     }
- 
+    
+    // Seta no pai a referencia do filho que o irmão tinha
     node->recordArr[idx-1] = sibling->recordArr[sibling->noOfRecs-1];
- 
+    
+    // Incrementa no filho que recebeu chave emprestada
+    // decrementa no irmão que teve uma chave retirada
     child->noOfRecs += 1;
     sibling->noOfRecs -= 1;
     
@@ -706,6 +731,13 @@ void borrowFromPrev(bTree* tree, bTreeNode *node, int idx) {
     return;
 }
  
+/*
+   Faz a mesma coisa da função de cima 
+   com a diferença pega uma chave e um filho do nó da direita
+   ou seja o proximo, portando pega o primeiro regitro leva para 
+   a raiz imediata, e desloca para esquerda no irmão e no filho 
+   que recebe o nó 
+*/
 void borrowFromNext(bTree* tree, bTreeNode *node, int idx) {
  
     bTreeNode *child = malloc(sizeof(bTreeNode));
@@ -826,7 +858,10 @@ bool removeFromTree(bTree* tree, int key) {
     free(root);
     return found;
 }
-
+/*
+    Percorre a arvore em uma estrutura recursiva de função 
+    fazendo os seeks e reads necesarios para realizar o print
+*/
 void hardPrint(bTree* tree) {
     bTreeNode* lido = (bTreeNode*) malloc(sizeof(bTreeNode));
     for(int i = 0; i < tree->nextPos; i++) {
