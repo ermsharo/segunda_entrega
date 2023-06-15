@@ -1,0 +1,320 @@
+How many records do you want to build from dataset?Position in node:7
+Number of Records:3
+Is leaf?:0
+Keys:
+261412 574878 752113 
+Links:
+1 14 8 16 -1 -1 
+
+Position in node:1
+Number of Records:4
+Is leaf?:0
+Keys:
+44587 132486 181622 221563 
+Links:
+0 17 6 18 9 -1 
+
+Position in node:0
+Number of Records:3
+Is leaf?:1
+Keys:
+32497 36350 39021 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:17
+Number of Records:2
+Is leaf?:1
+Keys:
+65933 89662 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:6
+Number of Records:3
+Is leaf?:1
+Keys:
+137804 157093 180049 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:18
+Number of Records:2
+Is leaf?:1
+Keys:
+183979 192158 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:9
+Number of Records:4
+Is leaf?:1
+Keys:
+222346 231998 240638 241415 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:14
+Number of Records:2
+Is leaf?:0
+Keys:
+335197 466677 
+Links:
+13 2 12 -1 -1 -1 
+
+Position in node:13
+Number of Records:4
+Is leaf?:1
+Keys:
+293510 313846 319216 323903 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:2
+Number of Records:4
+Is leaf?:1
+Keys:
+341308 371845 377231 451342 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:12
+Number of Records:5
+Is leaf?:1
+Keys:
+471900 490649 510724 529616 543278 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:8
+Number of Records:2
+Is leaf?:0
+Keys:
+676106 723919 
+Links:
+5 15 10 -1 -1 -1 
+
+Position in node:5
+Number of Records:2
+Is leaf?:1
+Keys:
+588558 619764 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:15
+Number of Records:3
+Is leaf?:1
+Keys:
+678611 691753 705317 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:10
+Number of Records:2
+Is leaf?:1
+Keys:
+724733 743849 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:16
+Number of Records:3
+Is leaf?:0
+Keys:
+782891 839763 940333 
+Links:
+4 3 19 11 -1 -1 
+
+Position in node:4
+Number of Records:3
+Is leaf?:1
+Keys:
+754265 768704 774597 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:3
+Number of Records:2
+Is leaf?:1
+Keys:
+786045 807886 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:19
+Number of Records:3
+Is leaf?:1
+Keys:
+849944 900217 937542 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:11
+Number of Records:4
+Is leaf?:1
+Keys:
+959962 990171 991197 996522 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+How many records do you want to build from dataset?Position in node:7
+Number of Records:3
+Is leaf?:0
+Keys:
+261412 574878 752113 
+Links:
+1 14 8 16 -1 -1 
+
+Position in node:1
+Number of Records:4
+Is leaf?:0
+Keys:
+44587 132486 181622 221563 
+Links:
+0 17 6 18 9 -1 
+
+Position in node:0
+Number of Records:3
+Is leaf?:1
+Keys:
+32497 36350 39021 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:17
+Number of Records:2
+Is leaf?:1
+Keys:
+65933 89662 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:6
+Number of Records:3
+Is leaf?:1
+Keys:
+137804 157093 180049 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:18
+Number of Records:2
+Is leaf?:1
+Keys:
+183979 192158 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:9
+Number of Records:4
+Is leaf?:1
+Keys:
+222346 231998 240638 241415 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:14
+Number of Records:2
+Is leaf?:0
+Keys:
+335197 466677 
+Links:
+13 2 12 -1 -1 -1 
+
+Position in node:13
+Number of Records:4
+Is leaf?:1
+Keys:
+293510 313846 319216 323903 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:2
+Number of Records:4
+Is leaf?:1
+Keys:
+341308 371845 377231 451342 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:12
+Number of Records:5
+Is leaf?:1
+Keys:
+471900 490649 510724 529616 543278 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:8
+Number of Records:2
+Is leaf?:0
+Keys:
+676106 723919 
+Links:
+5 15 10 -1 -1 -1 
+
+Position in node:5
+Number of Records:2
+Is leaf?:1
+Keys:
+588558 619764 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:15
+Number of Records:3
+Is leaf?:1
+Keys:
+678611 691753 705317 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:10
+Number of Records:2
+Is leaf?:1
+Keys:
+724733 743849 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:16
+Number of Records:3
+Is leaf?:0
+Keys:
+782891 839763 940333 
+Links:
+4 3 19 11 -1 -1 
+
+Position in node:4
+Number of Records:3
+Is leaf?:1
+Keys:
+754265 768704 774597 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:3
+Number of Records:2
+Is leaf?:1
+Keys:
+786045 807886 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:19
+Number of Records:3
+Is leaf?:1
+Keys:
+849944 900217 937542 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:11
+Number of Records:4
+Is leaf?:1
+Keys:
+959962 990171 991197 996522 
+Links:
+-1 -1 -1 -1 -1 -1 
+

@@ -1,0 +1,48 @@
+How many records do you want to build from dataset?Position in node:1
+Number of Records:1
+Is leaf?:0
+Keys:
+335197 
+Links:
+0 2 -1 -1 -1 -1 
+
+Position in node:0
+Number of Records:2
+Is leaf?:1
+Keys:
+132486 221563 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:2
+Number of Records:4
+Is leaf?:1
+Keys:
+574878 752113 782891 990171 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+How many records do you want to build from dataset?Position in node:1
+Number of Records:1
+Is leaf?:0
+Keys:
+335197 
+Links:
+0 2 -1 -1 -1 -1 
+
+Position in node:0
+Number of Records:2
+Is leaf?:1
+Keys:
+132486 221563 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:2
+Number of Records:4
+Is leaf?:1
+Keys:
+574878 752113 782891 990171 
+Links:
+-1 -1 -1 -1 -1 -1 
+
