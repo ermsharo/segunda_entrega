@@ -1,3 +1,19 @@
+import csv
+
+# Pega as chaves do csv para compararmos
+def csv_to_array(file_path, max_lines=None):
+    column_array = []
+    with open(file_path, 'r') as csv_file:
+        reader = csv.reader(csv_file)
+        line_count = 0
+        for row in reader:
+            if line_count == max_lines:
+                break
+            if row:  # Check if the row is not empty
+                column_array.append(row[0])
+                line_count += 1
+    return column_array
+
 class Node:
     def __init__(self, leaf=False):
         self.keys = []
@@ -79,6 +95,7 @@ class BTree():
         
         # setamos o contador i para ser o ultimo elemento do nó de chaves
         i = len(x.keys) - 1
+        print("Keys size here", i)
 
         if x.leaf:
             # adcionamos ao final uma chave nula para termos onde almentar o nó
@@ -400,18 +417,19 @@ def delete_example():
 def insert_and_search_example():
     B = BTree(3)
     
-    for i in range(10):
-        B.insert(i)
+    csv_data = csv_to_array("dataset.csv",28)
+    for key in csv_data:
+        B.insert(key)
 
         B.print_tree(B.root)
         print()
 
-    keys_to_search_for = [2, 9, 11, 4]
-    for key in keys_to_search_for:
-        if B.search(key) is not None:
-            print(f'{key} is in the tree')
-        else:
-            print(f'{key} is NOT in the tree')
+    # keys_to_search_for = [2, 9, 11, 4]
+    # for key in keys_to_search_for:
+    #     if B.search(key) is not None:
+    #         print(f'{key} is in the tree')
+    #     else:
+    #         print(f'{key} is NOT in the tree')
 
 
 def main():

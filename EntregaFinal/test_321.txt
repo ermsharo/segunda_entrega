@@ -1,0 +1,800 @@
+How many records do you want to build from dataset?Position in node:26
+Number of Records:4
+Is leaf?:0
+Keys:
+192158 466677 693321 839763 
+Links:
+7 63 27 58 90 -1 
+
+Position in node:7
+Number of Records:3
+Is leaf?:0
+Keys:
+44587 89662 132486 
+Links:
+1 61 81 25 -1 -1 
+
+Position in node:1
+Number of Records:3
+Is leaf?:0
+Keys:
+15525 32497 39021 
+Links:
+0 56 23 68 -1 -1 
+
+Position in node:0
+Number of Records:4
+Is leaf?:1
+Keys:
+9545 10621 12644 13721 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:56
+Number of Records:5
+Is leaf?:1
+Keys:
+19670 20040 24614 30581 30662 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:23
+Number of Records:3
+Is leaf?:1
+Keys:
+35801 36350 37278 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:68
+Number of Records:4
+Is leaf?:1
+Keys:
+39693 41181 41976 43571 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:61
+Number of Records:2
+Is leaf?:0
+Keys:
+51934 65933 
+Links:
+17 62 79 -1 -1 -1 
+
+Position in node:17
+Number of Records:2
+Is leaf?:1
+Keys:
+45046 47244 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:62
+Number of Records:5
+Is leaf?:1
+Keys:
+54024 54609 56036 58071 61225 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:79
+Number of Records:4
+Is leaf?:1
+Keys:
+77384 80575 82934 86924 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:81
+Number of Records:3
+Is leaf?:0
+Keys:
+102921 118348 125667 
+Links:
+28 80 49 92 -1 -1 
+
+Position in node:28
+Number of Records:3
+Is leaf?:1
+Keys:
+95886 99052 102116 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:80
+Number of Records:3
+Is leaf?:1
+Keys:
+103775 109214 109885 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:49
+Number of Records:3
+Is leaf?:1
+Keys:
+118415 121331 124821 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:92
+Number of Records:2
+Is leaf?:1
+Keys:
+126878 127929 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:25
+Number of Records:4
+Is leaf?:0
+Keys:
+142669 158213 163053 181622 
+Links:
+6 69 40 96 18 -1 
+
+Position in node:6
+Number of Records:3
+Is leaf?:1
+Keys:
+134251 137804 138676 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:69
+Number of Records:2
+Is leaf?:1
+Keys:
+149985 157093 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:40
+Number of Records:2
+Is leaf?:1
+Keys:
+161409 161857 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:96
+Number of Records:4
+Is leaf?:1
+Keys:
+163077 166727 177375 180049 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:18
+Number of Records:3
+Is leaf?:1
+Keys:
+183979 184254 184697 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:63
+Number of Records:4
+Is leaf?:0
+Keys:
+261412 319216 349900 417007 
+Links:
+52 14 73 39 76 -1 
+
+Position in node:52
+Number of Records:5
+Is leaf?:0
+Keys:
+218479 221563 229335 240638 252071 
+Links:
+51 86 9 97 35 60 
+
+Position in node:51
+Number of Records:3
+Is leaf?:1
+Keys:
+192914 210895 216444 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:86
+Number of Records:2
+Is leaf?:1
+Keys:
+218544 219151 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:9
+Number of Records:3
+Is leaf?:1
+Keys:
+222346 223160 227255 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:97
+Number of Records:2
+Is leaf?:1
+Keys:
+229474 231998 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:35
+Number of Records:3
+Is leaf?:1
+Keys:
+240850 241415 243816 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:60
+Number of Records:4
+Is leaf?:1
+Keys:
+254193 254257 257946 260081 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:14
+Number of Records:3
+Is leaf?:0
+Keys:
+268373 281219 305187 
+Links:
+13 83 42 55 -1 -1 
+
+Position in node:13
+Number of Records:3
+Is leaf?:1
+Keys:
+261416 265643 265930 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:83
+Number of Records:2
+Is leaf?:1
+Keys:
+269693 272050 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:42
+Number of Records:4
+Is leaf?:1
+Keys:
+285231 293510 302350 304132 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:55
+Number of Records:5
+Is leaf?:1
+Keys:
+306713 309290 309388 313846 313980 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:73
+Number of Records:2
+Is leaf?:0
+Keys:
+335197 347385 
+Links:
+36 2 71 -1 -1 -1 
+
+Position in node:36
+Number of Records:4
+Is leaf?:1
+Keys:
+319917 323903 324350 334803 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:2
+Number of Records:5
+Is leaf?:1
+Keys:
+336321 341308 342005 344195 346637 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:71
+Number of Records:2
+Is leaf?:1
+Keys:
+349403 349426 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:39
+Number of Records:2
+Is leaf?:0
+Keys:
+377231 397286 
+Links:
+30 21 74 -1 -1 -1 
+
+Position in node:30
+Number of Records:5
+Is leaf?:1
+Keys:
+368146 370811 371845 374041 375341 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:21
+Number of Records:3
+Is leaf?:1
+Keys:
+380015 388129 393877 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:74
+Number of Records:5
+Is leaf?:1
+Keys:
+400796 403204 411805 412266 415264 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:76
+Number of Records:3
+Is leaf?:0
+Keys:
+429610 436943 451342 
+Links:
+32 59 82 41 -1 -1 
+
+Position in node:32
+Number of Records:3
+Is leaf?:1
+Keys:
+418593 419958 427210 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:59
+Number of Records:2
+Is leaf?:1
+Keys:
+432492 434037 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:82
+Number of Records:4
+Is leaf?:1
+Keys:
+437943 443272 443679 444629 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:41
+Number of Records:5
+Is leaf?:1
+Keys:
+456401 457819 462643 465162 466013 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:27
+Number of Records:3
+Is leaf?:0
+Keys:
+529616 574878 639608 
+Links:
+24 78 8 57 -1 -1 
+
+Position in node:24
+Number of Records:3
+Is leaf?:0
+Keys:
+490649 501104 510724 
+Links:
+12 22 94 20 -1 -1 
+
+Position in node:12
+Number of Records:3
+Is leaf?:1
+Keys:
+471900 478793 487773 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:22
+Number of Records:3
+Is leaf?:1
+Keys:
+494198 498084 500411 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:94
+Number of Records:3
+Is leaf?:1
+Keys:
+501568 504250 508418 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:20
+Number of Records:2
+Is leaf?:1
+Keys:
+522612 526941 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:78
+Number of Records:2
+Is leaf?:0
+Keys:
+539810 544457 
+Links:
+75 37 77 -1 -1 -1 
+
+Position in node:75
+Number of Records:3
+Is leaf?:1
+Keys:
+530162 532276 536546 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:37
+Number of Records:2
+Is leaf?:1
+Keys:
+540892 543278 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:77
+Number of Records:4
+Is leaf?:1
+Keys:
+552360 555973 571507 572419 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:8
+Number of Records:2
+Is leaf?:0
+Keys:
+612173 624634 
+Links:
+5 46 50 -1 -1 -1 
+
+Position in node:5
+Number of Records:4
+Is leaf?:1
+Keys:
+588167 588558 594768 597390 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:46
+Number of Records:4
+Is leaf?:1
+Keys:
+617168 617468 619764 621662 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:50
+Number of Records:4
+Is leaf?:1
+Keys:
+629367 631878 633078 634944 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:57
+Number of Records:2
+Is leaf?:0
+Keys:
+653525 676106 
+Links:
+33 54 15 -1 -1 -1 
+
+Position in node:33
+Number of Records:3
+Is leaf?:1
+Keys:
+644701 647473 652517 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:54
+Number of Records:5
+Is leaf?:1
+Keys:
+663194 668710 672394 673180 675218 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:15
+Number of Records:5
+Is leaf?:1
+Keys:
+678611 680978 689718 691753 692562 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:58
+Number of Records:2
+Is leaf?:0
+Keys:
+752113 801394 
+Links:
+45 16 65 -1 -1 -1 
+
+Position in node:45
+Number of Records:2
+Is leaf?:0
+Keys:
+723919 730288 
+Links:
+34 10 44 -1 -1 -1 
+
+Position in node:34
+Number of Records:5
+Is leaf?:1
+Keys:
+705317 707115 710971 715803 722883 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:10
+Number of Records:5
+Is leaf?:1
+Keys:
+724733 725788 727028 729937 730044 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:44
+Number of Records:5
+Is leaf?:1
+Keys:
+736473 738387 743849 744362 746840 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:16
+Number of Records:3
+Is leaf?:0
+Keys:
+768704 782891 787009 
+Links:
+4 91 3 64 -1 -1 
+
+Position in node:4
+Number of Records:3
+Is leaf?:1
+Keys:
+753854 754265 756165 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:91
+Number of Records:4
+Is leaf?:1
+Keys:
+771691 774597 782077 782224 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:3
+Number of Records:3
+Is leaf?:1
+Keys:
+785721 786045 786500 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:64
+Number of Records:4
+Is leaf?:1
+Keys:
+788211 794605 796599 800671 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:65
+Number of Records:3
+Is leaf?:0
+Keys:
+806400 818139 830310 
+Links:
+43 95 72 87 -1 -1 
+
+Position in node:43
+Number of Records:2
+Is leaf?:1
+Keys:
+801711 801766 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:95
+Number of Records:3
+Is leaf?:1
+Keys:
+807886 811352 813347 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:72
+Number of Records:2
+Is leaf?:1
+Keys:
+822945 823990 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:87
+Number of Records:4
+Is leaf?:1
+Keys:
+833691 834926 835246 837698 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:90
+Number of Records:2
+Is leaf?:0
+Keys:
+900217 957413 
+Links:
+89 38 70 -1 -1 -1 
+
+Position in node:89
+Number of Records:4
+Is leaf?:0
+Keys:
+846081 857876 874903 897849 
+Links:
+19 93 66 53 98 -1 
+
+Position in node:19
+Number of Records:2
+Is leaf?:1
+Keys:
+841032 845926 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:93
+Number of Records:4
+Is leaf?:1
+Keys:
+849944 851473 857538 857704 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:66
+Number of Records:2
+Is leaf?:1
+Keys:
+869174 873209 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:53
+Number of Records:3
+Is leaf?:1
+Keys:
+885823 893341 894313 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:98
+Number of Records:2
+Is leaf?:1
+Keys:
+898582 898989 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:38
+Number of Records:5
+Is leaf?:0
+Keys:
+927588 934163 940333 948344 950609 
+Links:
+31 99 47 11 84 88 
+
+Position in node:31
+Number of Records:2
+Is leaf?:1
+Keys:
+917723 918885 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:99
+Number of Records:3
+Is leaf?:1
+Keys:
+927779 929812 930225 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:47
+Number of Records:3
+Is leaf?:1
+Keys:
+937542 937990 938888 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:11
+Number of Records:2
+Is leaf?:1
+Keys:
+943789 944088 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:84
+Number of Records:2
+Is leaf?:1
+Keys:
+948697 950500 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:88
+Number of Records:3
+Is leaf?:1
+Keys:
+951692 955190 956324 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:70
+Number of Records:3
+Is leaf?:0
+Keys:
+974514 982764 991197 
+Links:
+48 85 67 29 -1 -1 
+
+Position in node:48
+Number of Records:4
+Is leaf?:1
+Keys:
+959962 963154 963282 967049 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:85
+Number of Records:3
+Is leaf?:1
+Keys:
+975086 975902 978008 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:67
+Number of Records:3
+Is leaf?:1
+Keys:
+982934 985917 990171 
+Links:
+-1 -1 -1 -1 -1 -1 
+
+Position in node:29
+Number of Records:3
+Is leaf?:1
+Keys:
+993724 996522 997757 
+Links:
+-1 -1 -1 -1 -1 -1 
+

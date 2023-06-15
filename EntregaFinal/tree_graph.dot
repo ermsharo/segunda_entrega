@@ -1,0 +1,12 @@
+digraph Tree {
+   -> { 
+  0 [label="Position: 0"];
+  0 -> { 
+  2 [label="Position: 2"];
+  2 -> { 
+  2 -> { 
+  0 [label="Position: 0"];
+  0 -> { 
+  2 [label="Position: 2"];
+  2 -> { 
+}
